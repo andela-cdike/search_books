@@ -19,7 +19,7 @@
     <!-- results table -->
     {% if books %}
       <h3 class="text-center">Results</h3>
-      <h6 class="text-center">{{ books|length }} books found</h6>
+      <h6 class="text-center">{{ books|length }} book{{ books.count|pluralize}} found</h6>
 
       <table class="table table-striped">
         <thead>
