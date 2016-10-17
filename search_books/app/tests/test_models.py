@@ -3,13 +3,14 @@ from django.utils import timezone
 
 from app.models import Book
 
+
 class BookTestSuite(TestCase):
     '''Tests for the Book model'''
     def setUp(self):
         self.book = Book.objects.create(
             title='Knightmare Academy',
             category='thriller',
-            date_published=timezone.now()
+            pub_date=timezone.now()
         )
 
     def test_book_model(self):

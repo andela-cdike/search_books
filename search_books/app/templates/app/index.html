@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block main %}
+  
+  <main class="col-sm-offset-3 col-sm-6">
+    
+    <!-- search bar -->
+    <section id="search-bar">
+      <form action="{% url 'search' %}" method="get" class="form-inline">
+        <div class="form-group">
+          <input class="form-control" id="search-box" type="text" name="q" placeholder="Search by name or category" />
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+    </section>
+
+    <!-- results table -->
+    {% if books %}
+      <h3 class="text-center">Results</h3>
+      <h6 class="text-center">{{ books|length }} books found</h6>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Date Published</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for book in books %}
+            <tr>
+              <td>{{ book.title }}</td>
+              <td>{{ book.category }}</td>
+              <td>{{ book.pub_date }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <h6 class="text-center">No result matching query</h6>
+    {% endif %}
+
+  </main>
+
+{% endblock main %}

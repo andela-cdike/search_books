@@ -1,7 +1,7 @@
 from django.db.models import Q
 from django.views.generic.list import ListView
 
-from app.model import Book
+from app.models import Book
 
 
 class SearchView(ListView):
@@ -15,8 +15,9 @@ class SearchView(ListView):
         '''
         queryset = super(SearchView, self).get_queryset()
         query_string = self.request.GET.get('q', '')
+
         queryset = queryset.filter(
             Q(title__icontains=query_string) |
-            Q(category__icontains=query_string)
+            Q(category__iexact=query_string)
         )
         return queryset

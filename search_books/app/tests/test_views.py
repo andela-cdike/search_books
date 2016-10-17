@@ -13,7 +13,7 @@ class SearchViewTestSuite(TestCase):
         self.book = Book.objects.create(
             title='Knightmare Academy',
             category='thriller',
-            date_published=timezone.now()
+            pub_date=timezone.now()
         )
         self.client = Client()
 
