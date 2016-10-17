@@ -7,5 +7,8 @@ class Book(models.Model):
     category = models.CharField(max_length=25)
     pub_date = models.DateField()
 
+    class Meta:
+        ordering = ('title',)
+
     def __unicode__(self):
         return self.title
