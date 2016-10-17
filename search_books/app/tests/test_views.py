@@ -3,6 +3,8 @@ from django.test import Client, TestCase
 from django.urls import reverse
 from django.utils import timezone
 
+from app.models import Book
+
 
 class SearchViewTestSuite(TestCase):
     '''Tests for search view and functionality'''

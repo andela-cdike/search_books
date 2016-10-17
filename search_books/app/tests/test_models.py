@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.utils import timezone
 
+from app.models import Book
 
 class BookTestSuite(TestCase):
     '''Tests for the Book model'''
